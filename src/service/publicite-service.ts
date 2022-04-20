@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
     providedIn : 'root'
 })
 export class PubliciteService {
-    readonly API_URL = 'http://localhost:8080/publicite';
+    readonly API_URL = 'http://localhost:8080/SpringMVC/publicite';
     constructor(private httpClient : HttpClient) {}
 
     getPublicite(idPublicite : any){

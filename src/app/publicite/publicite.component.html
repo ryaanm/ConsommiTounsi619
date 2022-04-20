@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="row">
         <div class="col-md-12">
@@ -36,6 +37,7 @@
                     <table class="table">
                         <thead style="background-color: rgb(192, 183, 183);">
                             <th>Nom</th>
+                            <th>Image</th>
                             <th>Date Début</th>
                             <th>Date Fin</th>
                             <th>Action</th>
@@ -43,6 +45,7 @@
                         <tbody>
                             <tr *ngFor='let p of listPublicite'>
                                 <td>{{p.nom}}</td>
+                                <td>{{p.image}}</td>
                                 <td>{{p.dateDebut}}</td>
                                 <td>{{p.dateFin}}</td>
                                 <td><button type="button" class="btn btn-outline-primary"
@@ -62,16 +65,20 @@
                                             <div class="modal-body">
     
                                                 <div class="row" class="col-md-5">
-                                                    <label>Title</label>
-                                                    <input type="text" [(ngModel)]="p.title" [ngModelOptions]="{standalone : true}" />
+                                                    <label>Nom</label>
+                                                    <input type="text" [(ngModel)]="p.nom" [ngModelOptions]="{standalone : true}" />
                                                 </div>
                                                 <div class="row" class="col-md-5">
-                                                    <label>Price</label>
-                                                    <input type="number" [(ngModel)]="p.price" [ngModelOptions]="{standalone : true}" />
+                                                    <label>Image</label>
+                                                    <input type="text" [(ngModel)]="p.image" [ngModelOptions]="{standalone : true}" />
                                                 </div>
                                                 <div class="row" class="col-md-5">
-                                                    <label>Quantity</label>
-                                                    <input type="number" [(ngModel)]="p.quantity" [ngModelOptions]="{standalone : true}" />
+                                                    <label>Date Début</label>
+                                                    <input type="date" [(ngModel)]="p.dateDebut" [ngModelOptions]="{standalone : true}" />
+                                                </div>
+                                                <div class="row" class="col-md-5">
+                                                    <label>Date Fin</label>
+                                                    <input type="date" [(ngModel)]="p.dateFin" [ngModelOptions]="{standalone : true}" />
                                                 </div>
                                             </div>
     
@@ -79,13 +86,13 @@
     
                                                 <button type="button" class="btn btn-info"
                                                     (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
-                                                <button class="btn btn-success"(click)="editProduct(p)" (click)="modal.close('Save click')">Validate</button>
+                                                <button class="btn btn-success"(click)="editPublicite(p)" (click)="modal.close('Save click')">Validate</button>
                                             </div>
                                         </form>
                                     </div>
                                     </ng-template>
                                     <button type="button" class="btn btn-outline-danger"
-                                        (click)="deleteProduct(p.id_product)">delete</button>
+                                        (click)="deletePublicite(p.idPublicite)">delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -95,3 +102,4 @@
         </div>
     </div>
     </div>
+    

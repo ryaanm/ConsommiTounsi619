@@ -1,7 +1,9 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Publicite } from 'src/models/publicite';
 import { PubliciteService } from 'src/service/publicite-service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'app-publicite',
@@ -14,7 +16,7 @@ export class PubliciteComponent implements OnInit {
   publicite !: Publicite;
   closeResult !: string;
 
-  constructor(private publiciteService : PubliciteService) { }
+  constructor(private publiciteService : PubliciteService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.publiciteService.getPublicites();
@@ -28,6 +30,7 @@ export class PubliciteComponent implements OnInit {
     this.publiciteService.getPublicites().subscribe(res => this.listPublicite = res)
 
   }
+  
   addPublicite(p : any){
     this.publiciteService.addPublicite(p).subscribe(() => {
       this.publiciteService.getPublicites();
@@ -35,9 +38,11 @@ export class PubliciteComponent implements OnInit {
        })
 
   }
+
   editPublicite(publicite : Publicite){
     this.publiciteService.modifyPublicite(publicite).subscribe()
   }
+
   deletePublicite(idPublicite : any) {
      this.publiciteService.removePublicite(idPublicite).subscribe(() => {
     this.publiciteService.getPublicites();

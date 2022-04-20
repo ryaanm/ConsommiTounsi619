@@ -884,3 +884,9 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 2022-04-17 06:37:27.505  INFO 1608 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-04-17 06:37:27.519  INFO 1608 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
 2022-04-17 06:37:27.897  WARN 1608 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-17 06:37:28.497  INFO 1608 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/SpringMVC'
+2022-04-17 06:37:28.500  INFO 1608 --- [restartedMain] t.e.spring.ConsommiTounsiApiApplication  : Started ConsommiTounsiApiApplication in 4.103 seconds (JVM running for 4.9)
+2022-04-17 06:51:30.195  INFO 1608 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-04-17 06:51:30.202  INFO 1608 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 06:51:30.206  INFO 1608 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-17 06:51:30.212  INFO 1608 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

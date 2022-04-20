@@ -1,0 +1,12 @@
+cd C:\Products\Workspace\ConsommiTounsi619
+
+# git push
+git add .
+git commit -m "..."
+git push
+
+#git branch
+show current branch:  git branch
+show all branches: git branch -r
+switch branch: git checkout ...
+

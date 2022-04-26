@@ -4,4 +4,12 @@ export class Publicite {
         dateDebut : Date;
         dateFin : Date;
         image : string;
+        nbreVueInitial: number;
+        nbreVueFinal: number;
+        numPropPublicite: number;
+        prixPublicite: number;
+        typePublicite: string;
+        description: string;
+
+
 }

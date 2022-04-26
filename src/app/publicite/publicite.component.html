@@ -1,109 +1,188 @@
+<button type="buttony" class="buttony " id="submitButton" (click)="showPublicite()">Afficher toutes les publicités </button>
+<button type="buttony" class="buttony" id="submitButton" (click)="AddPublicite()">Ajouter une nouvelle publicité</button>
 
-<div class="row">
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Ajouter une nouvelle publicité</button>
-            <br><br>
-            <ng-template #mymodal1 let-modal1>
-                <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title" >Ajouter une nouvelle publicité</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
-                        <span aria-hidden="true" (click)="cancel()">sqdqsd</span>
-                    </button>
-    
+
+
+
+<div *ngIf="showIntPub">
+    <div class="card-deck">
+        <table class="table caption-top">
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Target</th>
+                <th scope="col">Channel</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Initial Vue</th>
+                <th scope="col">Final View</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Cost </th>
+                <th scope="col">Phone OWner </th>
+                <th scope="col">Mail owner Publicity</th>
+                <th scope="col">Image</th>
+            </tr>
+
+            <tr *ngFor="let p of ListPublicities">
+                <td>{{p.idPublicity}}</td>
+                <td>{{p.namePublicity}}</td>
+                <td>{{p.descriptionPublicity}}</td>
+                <td>{{p.targetPublicity}}</td>
+                <td>{{p.channelPublicity}}</td>
+                <td>{{p.typePublicity}}</td>
+                <td>{{p.statusPublicity}} </td>
+                <td>{{p.InitialViewNumber}}</td>
+                <td>{{p.finalViewNumber}}</td>
+                <td>{{p.startDatePublicity}}</td>
+                <td>{{p.endDatePublicity}}</td>
+                <td>{{p.costPublicity}}</td>
+                <td>{{p.phoneOwnerPublicity}}</td>
+                <td>{{p.mailOwnerPublicity}}</td>
+                <div>
+                    <img src="{{'http://localhost:9091/SpringMVC/servlet/ImgPublcities/'+p.idPublicity}}" width="50"
+                        height="200" class="card-img-top" id="pub">
                 </div>
-                <div class="center">
-                <form>
-                    <div class="row" class="col-md-6">
-                        <input type="text" placeholder="Nom publicité" [(ngModel)]="publicite.nom"
-                            [ngModelOptions]="{standalone : true}">
-                    </div>
-                    <div class="row" class="col-md-6">
-                        <input type="date" placeholder="Date Début" [(ngModel)]="publicite.dateDebut"
-                            [ngModelOptions]="{standalone : true}">
-                    </div>
-                    <div class="row" class="col-md-6">
-                        <input type="date" placeholder="DateFin" [(ngModel)]="publicite.dateFin"
-                            [ngModelOptions]="{standalone : true}">
-                    </div>
-                    <div class="row" class="col-md-6">
-                        <input type="number" placeholder="Quantity" [(ngModel)]="publicite.dateFin"
-                            [ngModelOptions]="{standalone : true}">
-                    </div>
-                    <br>
-                    <button type="button" class="btn btn-success" (click)="addPublicite(publicite)" (click)="modal1.close('Save click')">Add</button> 
-                    <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
-                </form>
-            </div>
-            </ng-template>
-            <div class="row">
-                <div class="card" class="text-center">
-                    <table class="table">
-                        <thead style="background-color: rgb(192, 183, 183);">
-                            <th>Nom</th>
-                            <th>Image</th>
-                            <th>Date Début</th>
-                            <th>Date Fin</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor='let p of listPublicite'>
-                                <td>{{p.nom}}</td>
-                                <td>{{p.image}}</td>
-                                <td>{{p.dateDebut}}</td>
-                                <td>{{p.dateFin}}</td>
-                                <td><button type="button" class="btn btn-outline-primary"
-                                        (click)="open(mymodal)">edit</button>
-                                    <ng-template #mymodal let-modal>
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="modal-basic-title">Edit</h4>
-                                            <button type="button" class="close" aria-label="Close"
-                                                (click)="modal.dismiss('Cross click')">
-                                                <span aria-hidden="true" (click)="cancel()">×</span>
-    
-                                            </button>
-    
-                                        </div>
-                                        <div>
-                                        <form>
-                                            <div class="modal-body">
-    
-                                                <div class="row" class="col-md-5">
-                                                    <label>Nom</label>
-                                                    <input type="text" [(ngModel)]="p.nom" [ngModelOptions]="{standalone : true}" />
-                                                </div>
-                                                <div class="row" class="col-md-5">
-                                                    <label>Image</label>
-                                                    <input type="text" [(ngModel)]="p.image" [ngModelOptions]="{standalone : true}" />
-                                                </div>
-                                                <div class="row" class="col-md-5">
-                                                    <label>Date Début</label>
-                                                    <input type="date" [(ngModel)]="p.dateDebut" [ngModelOptions]="{standalone : true}" />
-                                                </div>
-                                                <div class="row" class="col-md-5">
-                                                    <label>Date Fin</label>
-                                                    <input type="date" [(ngModel)]="p.dateFin" [ngModelOptions]="{standalone : true}" />
-                                                </div>
-                                            </div>
-    
-                                            <div class="modal-footer">
-    
-                                                <button type="button" class="btn btn-info"
-                                                    (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
-                                                <button class="btn btn-success"(click)="editPublicite(p)" (click)="modal.close('Save click')">Validate</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    </ng-template>
-                                    <button type="button" class="btn btn-outline-danger"
-                                        (click)="deletePublicite(p.idPublicite)">delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                <button type="button" class="btn-primary" (click)="updateProductInterface(p.idPublicity,p)">
+                    Update</button>
+
+                <button (click)="deletePublicity(p.idPublicity)" type="button" class="btn-danger"> DELETE </button>
+            </tr>
+        </table>
     </div>
-    </div>
-    
+
+
+
+</div>
+
+
+
+
+
+<div *ngIf="AddIntPub">
+
+
+    <h1>ADD NEW PUBLICITY INTERFACE</h1>
+
+    <form #F="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Title Of Publicity : </label>
+                <input type="text" required placeholder="Title Of Publicity" #t="ngModel" id="titlePublicity"
+                    name="titlePublicity" [(ngModel)]="publicity.namePublicity">
+                <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+            <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+            <div *ngIf="t.errors.minlength">Invalid Title</div>
+        </div> -->
+
+            </div>
+
+            <div class="form-group">
+                <label>Publicity Description : </label>
+                <input type="text" required placeholder="description Publicity" #d="ngModel" id="descriptionPublicity"
+                    name="descriptionPublicity" [(ngModel)]="publicity.descriptionPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+            <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+            <div *ngIf="d.errors.minlength">Invalid Description</div>
+        </div> -->
+            </div>
+
+
+            <div class="form-group">
+                <label>Target Publicity : </label>
+                <input type="text" required placeholder="Publicity Target" #q="ngModel" name="targetPublicity"
+                    [(ngModel)]="publicity.targetPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+            <div *ngIf="q.errors.required">Target Is Obilgatory</div>
+            <div *ngIf="q.errors.minlength">Invalid Quantity</div>
+        </div> -->
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Channel Publicity : </label>
+                <input type="text" required placeholder="channel Publicity" #pp="ngModel" name="channelPublicity"
+                    [(ngModel)]="publicity.channelPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+            <div *ngIf="pp.errors.required">Channel Publicity Is Obilgatory</div>
+            
+        </div> -->
+            </div>
+
+            <label>Product Image</label>
+            <input type="file" name="file" [(ngModel)]="publicity.fileName"><br>
+
+
+
+
+
+            <button type="button" type="submit" id="add publicity" (click)="addPublicity()" class="btn btn-success">ADD
+                PUBLICITY</button>
+        </fieldset>
+    </form>
+    <br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="updateProductInt" class="container" style="padding-top: 100;">
+    <form #H="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Title Of Publicity : </label>
+                <input type="text" required placeholder="Title Of Publicity" #t="ngModel" id="titlePun  blicity"
+                    name="titlePublicity" [(ngModel)]="PublicityToUpdate.namePublicity">
+                <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+            <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+            <div *ngIf="t.errors.minlength">Invalid Title</div>
+        </div> -->
+
+            </div>
+
+            <div class="form-group">
+                <label>Publicity Desccription : </label>
+                <input type="text" required placeholder="descriptionPublicity" #d="ngModel" id="descriptionPublicity"
+                    name="descriptionPublicity" [(ngModel)]="PublicityToUpdate.descriptionPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+            <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+            <div *ngIf="d.errors.minlength">Invalid Description</div>
+        </div> -->
+            </div>
+
+
+            <div class="form-group">
+                <label>Publicity Target : </label>
+                <input type="text" required placeholder="targetPublicity" #q="ngModel" name="targetPublicity"
+                    [(ngModel)]="PublicityToUpdate.targetPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+            <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+        </div> -->
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Channel Publicity : </label>
+                <input type="text" required placeholder="channelPublicity" #pp="ngModel" name="channelPublicity"
+                    [(ngModel)]="PublicityToUpdate.channelPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+            <div *ngIf="pp.errors.required">Channel Is Obilgatory</div>
+            
+        </div> -->
+
+                <button type="button" id="updatePublicity"
+                    (click)="updatePublicity(PublicityToUpdate.idPublicity,PublicityToUpdate)"
+                    class="btn btn-success">Update
+                    Product</button>
+            </div>

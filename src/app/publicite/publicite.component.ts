@@ -11,36 +11,49 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./publicite.component.css']
 })
 export class PubliciteComponent implements OnInit {
-  listPublicite : any;
+  listPublicite : Publicite[];
   form : boolean = false;
-  publicite !: Publicite;
   closeResult !: string;
+  publicite: Publicite = new Publicite();
+  showPublicite: boolean;
+  AddPublicite: boolean;
 
   constructor(private publiciteService : PubliciteService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.publiciteService.getPublicites();
+
     this.publicite = {
       idPublicite: null,
       nom: null,
       dateDebut : null,
       dateFin : null,
-      image : null
+      image : null,
+      nbreVueInitial: null,
+      nbreVueFinal: null,
+      numPropPublicite: null,
+      prixPublicite: null,
+      typePublicite: null
     }
     this.publiciteService.getPublicites().subscribe(res => this.listPublicite = res)
 
   }
-  
+  showPublicite1() {
+    this.showPublicite = true;
+    this.AddPublicite = false;
+
+  }
+
   addPublicite(p : any){
-    this.publiciteService.addPublicite(p).subscribe(() => {
-      this.publiciteService.getPublicites();
+    this.publiciteService.addPublicite(p).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
       this.form = false;
        })
 
   }
 
   editPublicite(publicite : Publicite){
-    this.publiciteService.modifyPublicite(publicite).subscribe()
+
+    this.publiciteService.modifyPublicite(publicite).subscribe(() => this.publiciteService.getPublicites().subscribe(res => { this.listPublicite = res }));
+    this.publiciteService.getPublicites;
   }
 
   deletePublicite(idPublicite : any) {

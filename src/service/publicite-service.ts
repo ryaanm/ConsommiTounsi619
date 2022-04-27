@@ -10,20 +10,20 @@ export class PubliciteService {
     constructor(private httpClient : HttpClient) {}
 
     getPublicite(idPublicite : any){
-        return this.httpClient.get('${this.API_URL}/retrieve-publicite/${idPublicite}')
+        return this.httpClient.get(this.API_URL+'/retrieve-publicite/${idPublicite}')
     }
     getPublicites(){
-        return this.httpClient.get<Publicite[]>('${this.API_URL}/retrieve-all-pubs',{responseType: 'json'})
+        return this.httpClient.get<Publicite[]>(this.API_URL+'/retrieve-all-pubs')
    
     }
     addPublicite(publicite : any){
-        return this.httpClient.post('${this.API_URL}/add-publicite/', publicite)
+        return this.httpClient.post(this.API_URL+'/add-publicite/', publicite)
     }
     removePublicite(idPublicite : any){
-        return this.httpClient.delete('${this.API_URL}/remove-publicite/${idPublicite}')
+        return this.httpClient.delete(this.API_URL+'/remove-publicite/${idPublicite}')
     }
     modifyPublicite(publicite : any){
-        return this.httpClient.put('${this.API_URL}/modify-publicite', publicite)
+        return this.httpClient.put(this.API_URL+'/modify-publicite', publicite)
     }
 
 }

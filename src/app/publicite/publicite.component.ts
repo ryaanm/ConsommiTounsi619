@@ -23,7 +23,7 @@ export class PubliciteComponent implements OnInit {
   constructor(private publiciteService : PubliciteService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-
+/*
     this.publicite = {
       idPublicite: null,
       nom: null,
@@ -40,6 +40,7 @@ export class PubliciteComponent implements OnInit {
       canal : null
 
     }
+  */  
     this.publiciteService.getPublicites().subscribe(res => this.listPublicite = res)
 
   }
@@ -47,6 +48,7 @@ export class PubliciteComponent implements OnInit {
     this.showPublicite = true;
     this.AddPublicite = false;
     this.update = false;
+    console.log("qssqqs00");
 
   }
   showPublicite2() {
@@ -56,8 +58,8 @@ export class PubliciteComponent implements OnInit {
   }
  
 
-  addPublicite(p : any){
-    this.publiciteService.addPublicite(p).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
+  addPublicite(){
+    this.publiciteService.addPublicite(this.publicite).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
       this.form = false;
        })
 

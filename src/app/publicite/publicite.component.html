@@ -12,35 +12,27 @@
                 <th scope="col">#</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
-                <th scope="col">Target</th>
-                <th scope="col">Channel</th>
                 <th scope="col">Type</th>
-                <th scope="col">Status</th>
-                <th scope="col">Initial Vue</th>
-                <th scope="col">Final View</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Cost </th>
-                <th scope="col">Phone OWner </th>
-                <th scope="col">Mail owner Publicity</th>
+                <th scope="col">Vue initiale</th>
+                <th scope="col">Vue finale</th>
+                <th scope="col">Date Début</th>
+                <th scope="col">Date Fin</th>
+                <th scope="col">Coût </th>
+                <th scope="col">Numéro propriètaire </th>
                 <th scope="col">Image</th>
             </tr>
 
             <tr *ngFor="let p of ListPublicities">
-                <td>{{p.idPublicity}}</td>
-                <td>{{p.namePublicity}}</td>
-                <td>{{p.descriptionPublicity}}</td>
-                <td>{{p.targetPublicity}}</td>
-                <td>{{p.channelPublicity}}</td>
-                <td>{{p.typePublicity}}</td>
-                <td>{{p.statusPublicity}} </td>
-                <td>{{p.InitialViewNumber}}</td>
-                <td>{{p.finalViewNumber}}</td>
-                <td>{{p.startDatePublicity}}</td>
-                <td>{{p.endDatePublicity}}</td>
-                <td>{{p.costPublicity}}</td>
+                <td>{{p.idPublicite}}</td>
+                <td>{{p.nom}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.typePublicite}}</td>
+                <td>{{p.nbreVueInitial}}</td>
+                <td>{{p.nbreVueFinal}}</td>
+                <td>{{p.dateDebut}}</td>
+                <td>{{p.dateFin}}</td>
+                <td>{{p.numPropPublicite}}</td>
                 <td>{{p.phoneOwnerPublicity}}</td>
-                <td>{{p.mailOwnerPublicity}}</td>
                 <div>
                     <img src="{{'http://localhost:9091/SpringMVC/servlet/ImgPublcities/'+p.idPublicity}}" width="50"
                         height="200" class="card-img-top" id="pub">

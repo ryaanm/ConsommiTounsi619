@@ -1,3 +1,6 @@
+import { Canal } from "./canal";
+import { Cible } from "./cible";
+
 export class Publicite {
         idPublicite : number;
         nom : string;
@@ -10,6 +13,7 @@ export class Publicite {
         prixPublicite: number;
         typePublicite: string;
         description: string;
-
+        cible : Cible;
+        canal :Canal;
 
 }

@@ -14,8 +14,8 @@ export class PubliciteComponent implements OnInit {
   listPublicite : Publicite[];
   form : boolean = false;
   publicite: Publicite = new Publicite();
-  showPublicite: boolean;
-  AddPublicite: boolean;
+  showPublicite: boolean=true;
+  AddPublicite: boolean=false;
   update: boolean;
   Pubb: any;
 

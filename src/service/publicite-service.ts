@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';  
 import { HttpClient } from '@angular/common/http';
 import { Publicite } from 'src/models/publicite';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn : 'root'
 })
 export class PubliciteService {
-    readonly API_URL = 'http://localhost:8080/SpringMVC/publicite';
+    //readonly API_URL = 'http://localhost:8080/SpringMVC/publicite';
+    //readonly API_URL2 = 'http://localhost:8080/SpringMVC/publicite/add-publicite/';
+    private API_URL = environment.API_URL;
+    private API_URL2 = environment.API_URL2;
+
     constructor(private httpClient : HttpClient) {}
 
     getPublicite(idPublicite : any){
@@ -17,7 +22,7 @@ export class PubliciteService {
    
     }
     addPublicite(publicite : any){
-        return this.httpClient.post(this.API_URL+'/add-publicite/', publicite)
+        return this.httpClient.post(this.API_URL2+'${idUser}', publicite)
     }
     removePublicite(idPublicite : any){
         return this.httpClient.delete(this.API_URL+'/remove-publicite/${idPublicite}')

@@ -15,5 +15,6 @@ export class Publicite {
         description: string;
         cible : Cible;
         canal :Canal;
+        idUser: number;
 
 }

@@ -13,7 +13,6 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class PubliciteComponent implements OnInit {
   listPublicite : Publicite[];
   form : boolean = false;
-  closeResult !: string;
   publicite: Publicite = new Publicite();
   showPublicite: boolean;
   AddPublicite: boolean;
@@ -76,13 +75,7 @@ export class PubliciteComponent implements OnInit {
      })
 
 }
-open(content: any) {
-  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-    this.closeResult = `Closed with: ${result}`;
-  }, (reason) => {
-    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  });
-  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

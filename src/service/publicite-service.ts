@@ -13,7 +13,8 @@ export class PubliciteService {
         return this.httpClient.get('${this.API_URL}/retrieve-publicite/${idPublicite}')
     }
     getPublicites(){
-        return this.httpClient.get<Publicite[]>('${this.API_URL}/retrieve-all-pubs')
+        return this.httpClient.get<Publicite[]>('${this.API_URL}/retrieve-all-pubs',{responseType: 'json'})
+   
     }
     addPublicite(publicite : any){
         return this.httpClient.post('${this.API_URL}/add-publicite/', publicite)

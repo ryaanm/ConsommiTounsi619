@@ -17,6 +17,9 @@ export class PubliciteComponent implements OnInit {
   publicite: Publicite = new Publicite();
   showPublicite: boolean;
   AddPublicite: boolean;
+  update: boolean;
+  Pubb: any;
+
 
   constructor(private publiciteService : PubliciteService, private modalService: NgbModal) { }
 
@@ -25,6 +28,7 @@ export class PubliciteComponent implements OnInit {
     this.publicite = {
       idPublicite: null,
       nom: null,
+      description : null,
       dateDebut : null,
       dateFin : null,
       image : null,
@@ -32,7 +36,10 @@ export class PubliciteComponent implements OnInit {
       nbreVueFinal: null,
       numPropPublicite: null,
       prixPublicite: null,
-      typePublicite: null
+      typePublicite: null,
+      cible : null,
+      canal : null
+
     }
     this.publiciteService.getPublicites().subscribe(res => this.listPublicite = res)
 
@@ -40,8 +47,15 @@ export class PubliciteComponent implements OnInit {
   showPublicite1() {
     this.showPublicite = true;
     this.AddPublicite = false;
+    this.update = false;
 
   }
+  showPublicite2() {
+    this.showPublicite = false;
+    this.AddPublicite = true;
+
+  }
+ 
 
   addPublicite(p : any){
     this.publiciteService.addPublicite(p).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
@@ -83,5 +97,10 @@ open(content: any) {
   }
   cancel(){
     this.form = false;
+  }
+  updateInterface(id: number, publicite: Publicite) {
+    this.update= true;
+    this.showPublicite = false;
+    this.Pubb = publicite;
   }
 }

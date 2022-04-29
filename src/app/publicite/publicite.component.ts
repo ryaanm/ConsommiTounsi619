@@ -44,19 +44,7 @@ export class PubliciteComponent implements OnInit {
     this.publiciteService.getPublicites().subscribe(res => this.listPublicite = res)
 
   }
-  showPublicite1() {
-    this.showPublicite = true;
-    this.AddPublicite = false;
-    this.update = false;
-    console.log("qssqqs00");
 
-  }
-  showPublicite2() {
-    this.showPublicite = false;
-    this.AddPublicite = true;
-
-  }
- 
 
   addPublicite(){
     this.publiciteService.addPublicite(this.publicite).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
@@ -93,9 +81,5 @@ export class PubliciteComponent implements OnInit {
   cancel(){
     this.form = false;
   }
-  updateInterface(id: number, publicite: Publicite) {
-    this.update= true;
-    this.showPublicite = false;
-    this.Pubb = publicite;
-  }
+
 }

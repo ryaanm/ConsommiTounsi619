@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { Placement as PopperPlacement, Options } from '@popperjs/core';
+import { AddPubliciteComponent } from './add-publicite/add-publicite.component';
 
 
 
@@ -18,7 +19,8 @@ import { Placement as PopperPlacement, Options } from '@popperjs/core';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PubliciteComponent
+    PubliciteComponent,
+    AddPubliciteComponent
     
   ],
   imports: [

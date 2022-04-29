@@ -1,28 +1,66 @@
 <div class="row">
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Ajouter une nouvelle Publicité</button>
+            <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Ajouter une nouvelle
+                Publicité</button>
             <br><br>
             <ng-template #mymodal1 let-modal1>
                 <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title" >Ajouter une nouvelle Publicité</h4>
+                    <h4 class="modal-title" id="modal-basic-title">Ajouter une nouvelle Publicité</h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
                         <span aria-hidden="true" (click)="cancel()">×</span>
                     </button>
-    
+
                 </div>
                 <div class="center">
-                <form>
-                    <div class="row" class="col-md-6">
-                        <input type="text" placeholder="Product Name" [(ngModel)]="product.title"
-                            [ngModelOptions]="{standalone : true}">
-                    </div>
-               
-                    <br>
-                    <button type="button" class="btn btn-success" (click)="addPublicite(publicite)" (click)="modal1.close('Save click')">Ajouter</button> 
-                    <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Annuler</button>
-                </form>
-            </div>
+                    <form>
+                        <div class="row" class="col-md-5">
+                            <label>Nom</label>
+                            <input type="text" [(ngModel)]="publicite.nom"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Description</label>
+                            <input type="text" [(ngModel)]="publicite.description"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Date Début</label>
+                            <input type="date" [(ngModel)]="publicite.dateDebut"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Date Fin</label>
+                            <input type="date" [(ngModel)]="publicite.dateFin"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Numéro propriètaire</label>
+                            <input type="tel" [(ngModel)]="publicite.numPropPublicite"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Type Publicité</label>
+                            <input type="text" [(ngModel)]="publicite.typePublicite"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Canal</label>
+                            <input type="text" [(ngModel)]="publicite.canal"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+                        <div class="row" class="col-md-5">
+                            <label>Population Cible</label>
+                            <input type="text" [(ngModel)]="publicite.cible"
+                                [ngModelOptions]="{standalone : true}" />
+                        </div>
+
+                        <br>
+                        <button type="button" class="btn btn-success" (click)="addPublicite(publicite)"
+                            (click)="modal1.close('Save click')">Ajouter</button>
+                        <button type="button" class="btn btn-info" (click)="modal1.close('Save click')">Annuler</button>
+                    </form>
+                </div>
             </ng-template>
             <div class="row">
                 <div class="card" class="text-center">
@@ -39,14 +77,20 @@
                             <th>Canal Publicité</th>
                             <th>Cible Publicité</th>
                             <th>Prix Publicité</th>
-                            
-                           
                         </thead>
                         <tbody>
                             <tr *ngFor='let p of listPublicites'>
                                 <td>{{p.nom}}</td>
                                 <td>{{p.description}}</td>
-                                <td>{{p.quantity}}</td>
+                                <td>{{p.dateDebut | date}}</td>
+                                <td>{{p.dateFin | date}}</td>
+                                <td>{{p.nbreVueInitial}}</td>
+                                <td>{{p.nbreVueFinal}}</td>
+                                <td>{{p.numPropPublicite}}</td>
+                                <td>{{p.typePublicite}}</td>
+                                <td>{{p.canal}}</td>
+                                <td>{{p.cible}}</td>
+                                <td>{{p.prixPublicite}}</td>
                                 <td><button type="button" class="btn btn-outline-primary"
                                         (click)="open(mymodal)">Modifier</button>
                                     <ng-template #mymodal let-modal>
@@ -55,39 +99,70 @@
                                             <button type="button" class="close" aria-label="Close"
                                                 (click)="modal.dismiss('Cross click')">
                                                 <span aria-hidden="true" (click)="cancel()">×</span>
-    
+
                                             </button>
-    
+
                                         </div>
                                         <div>
-                                        <form>
-                                            <div class="modal-body">
-    
-                                                <div class="row" class="col-md-5">
-                                                    <label>Title</label>
-                                                    <input type="text" [(ngModel)]="p.title" [ngModelOptions]="{standalone : true}" />
+                                            <form>
+                                                <div class="modal-body">
+
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Nom</label>
+                                                        <input type="text" [(ngModel)]="publicite.nom"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Description</label>
+                                                        <input type="text" [(ngModel)]="publicite.description"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Date Début</label>
+                                                        <input type="date" [(ngModel)]="publicite.dateDebut"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Date Fin</label>
+                                                        <input type="date" [(ngModel)]="publicite.dateFin"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Numéro propriètaire</label>
+                                                        <input type="tel" [(ngModel)]="publicite.numPropPublicite"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Type Publicité</label>
+                                                        <input type="text" [(ngModel)]="publicite.typePublicite"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Canal</label>
+                                                        <input type="text" [(ngModel)]="publicite.canal"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+                                                    <div class="row" class="col-md-5">
+                                                        <label>Population Cible</label>
+                                                        <input type="text" [(ngModel)]="publicite.cible"
+                                                            [ngModelOptions]="{standalone : true}" />
+                                                    </div>
+
                                                 </div>
-                                                <div class="row" class="col-md-5">
-                                                    <label>Price</label>
-                                                    <input type="number" [(ngModel)]="p.price" [ngModelOptions]="{standalone : true}" />
+
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-info"
+                                                        (click)="modal.close('Save click')"
+                                                        (click)="cancel()">Annuler</button>
+                                                    <button class="btn btn-success" (click)="editPublicite(publicite)"
+                                                        (click)="modal.close('Save click')">Confirmer</button>
                                                 </div>
-                                                <div class="row" class="col-md-5">
-                                                    <label>Quantity</label>
-                                                    <input type="number" [(ngModel)]="p.quantity" [ngModelOptions]="{standalone : true}" />
-                                                </div>
-                                            </div>
-    
-                                            <div class="modal-footer">
-    
-                                                <button type="button" class="btn btn-info"
-                                                    (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
-                                                <button class="btn btn-success"(click)="editProduct(p)" (click)="modal.close('Save click')">Validate</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            </form>
+                                        </div>
                                     </ng-template>
                                     <button type="button" class="btn btn-outline-danger"
-                                        (click)="deleteProduct(p.id_product)">delete</button>
+                                        (click)="deletePublicite(p.idPublicite)">Supprimer</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -96,4 +171,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>

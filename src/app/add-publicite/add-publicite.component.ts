@@ -45,10 +45,10 @@ export class AddPubliciteComponent implements OnInit {
     });
   }
 
-  editProduct(publicite : Publicite){
+  editPublicite(publicite : Publicite){
     this.publiciteService.modifyPublicite(publicite).subscribe();
   }
-  deleteProduct(idPublicite : any){
+  deletePublicite(idPublicite : any){
     this.publiciteService.removePublicite(idPublicite).subscribe(() => this.getAllPublicites())
   }
   open(content: any) {

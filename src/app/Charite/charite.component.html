@@ -1,0 +1,128 @@
+<!-- <button type="buttony" class="buttony" id="submitButton" (click)="showCharite1()">
+    Afficher toutes les evenements de charité
+</button>
+<button type="buttony" class="buttony" id="submitButton" (click)="showCharite2()">
+    Ajouter un nouvel event de charité
+</button>
+
+<div *ngIf="AddCharite">
+    <div class="card-deck">
+        <table class="table caption-top">
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date Début</th>
+                <th scope="col">Date Fin</th>
+                <th scope="col">MontantPaye</th>
+            </tr>
+
+            <tr *ngFor="let c of listCharite">
+                <td>{{ c.id_charite }}</td>
+                <td>{{ c.nom }}</td>
+                <td>{{ c.description }}</td>
+                <td>{{ c.typecharite }}</td>
+                <td>{{ c.date_debut }}</td>
+                <td>{{ c.date_fin }}</td>
+                <td>{{ c.MontantPaye }}</td>
+                <button type="button" class="btn-primary" (click)="updateInterface(p.id_charite,c)">
+                    Modifier</button>
+                <button (click)="deleteCharite(c.id_charite)" type="button" class="btn-danger">
+                    Supprimer
+                </button>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="AddCharite">
+    <h1>Ajouter un nouvel evenement de charite</h1>
+
+    <form #F="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Titre Evenement : </label>
+                <input type="text" required placeholder="Titre de l evenement " #t="ngModel" id="" name="nom"
+                    [(ngModel)]="charite.nom" />
+            </div>
+            <div class="form-group">
+                <label> Description evenement de charité : </label>
+                <input type="text" required placeholder="Description" #d="ngModel" id="descriptionCharite"
+                    name="description" [(ngModel)]="charite.description" />
+            </div>
+            <button type="button" type="submit" id="add charite" (click)="addCharite()" class="btn btn-success">
+                Ajouter
+            </button>
+        </fieldset>
+    </form>
+    <br />
+</div>
+
+<div *ngIf="update" class="container" style="padding-top: 100">
+    <form #H="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Titre : </label>
+                <input type="text" required placeholder="Titre d'evenement" #t="ngModel" id="nom" name="nom"
+                    [(ngModel)]="charite.nom" />
+            </div>
+            <div class="form-group">
+                <label> Description : </label>
+                <input type="text" required placeholder="description" #d="ngModel" id="descriptionCharite"
+                    name="description" [(ngModel)]="charite.description" />
+                <button type="button" id="updatecharite" (click)="editCharite(charite)" class="btn btn-success">
+                    Modifier
+                </button>
+            </div>
+        </fieldset>
+
+    </form>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div>
+        <h1>Ajouter un nouvel evement de charite</h1>
+
+        <form #F="ngForm">
+          <fieldset>
+            <div class="form-group">
+              <label>Titre: </label>
+              <input type="text" required placeholder="Titre" #t="ngModel" id="nom" name="nom"
+                     [(ngModel)]="charite.nom" />
+            </div>
+            <div class="form-group">
+              <label> Description : </label>
+              <input type="text" required placeholder="Description" #d="ngModel" id="descriptionCharite"
+                     name="description" [(ngModel)]="charite.description" />
+            </div>
+            <button type="button" type="submit" id="add charite" (click)="addCharite()" class="btn btn-success">
+              Ajouter
+            </button>
+          </fieldset>
+        </form>
+        <br />
+      </div>
+    </div>
+    <div class="col-md-3">
+
+
+      <div class="list-group list-group-flush border-bottom scrollarea"
+           *ngFor="let c of listCharite">
+
+
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+
+            <strong class="mb-1">{{ c.nom }}</strong>
+            <small>{{ c.date_debut | date }}</small>
+          </div>
+          <div class="col-10 mb-1 small">{{ c.description }}</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+

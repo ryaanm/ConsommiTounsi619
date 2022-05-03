@@ -1,0 +1,178 @@
+<!-- <button type="buttony" class="buttony" id="submitButton" (click)="showPublicite1()">
+    Afficher toutes les publicités
+</button>
+<button type="buttony" class="buttony" id="submitButton" (click)="showPublicite2()">
+    Ajouter une nouvelle publicité
+</button>
+
+<div *ngIf="AddPublicite">
+    <div class="card-deck">
+        <table class="table caption-top">
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Canal</th>
+                <th scope="col">Cible</th>
+                <th scope="col">Type</th>
+                <th scope="col">Vue initiale</th>
+                <th scope="col">Vue finale</th>
+                <th scope="col">Date Début</th>
+                <th scope="col">Date Fin</th>
+                <th scope="col">Coût</th>
+                <th scope="col">Numéro propriètaire</th>
+                <th scope="col">Image</th>
+            </tr>
+
+            <tr *ngFor="let p of listPublicite">
+                <td>{{ p.idPublicite }}</td>
+                <td>{{ p.nom }}</td>
+                <td>{{ p.description }}</td>
+                <td>{{ p.canal }}</td>
+                <td>{{ p.cible }}</td>
+                <td>{{ p.typePublicite }}</td>
+                <td>{{ p.nbreVueInitial }}</td>
+                <td>{{ p.nbreVueFinal }}</td>
+                <td>{{ p.dateDebut }}</td>
+                <td>{{ p.dateFin }}</td>
+                <td>{{ p.numPropPublicite }}</td>
+                <td>{{ p.image }}</td>
+                <button type="button" class="btn-primary" (click)="updateInterface(p.idPublicite,p)">
+                    Modifier</button>
+                <button (click)="deletePublicite(p.idPublicite)" type="button" class="btn-danger">
+                    Supprimer
+                </button>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="AddPublicite">
+    <h1>Ajouter une nouvelle Publicité</h1>
+
+    <form #F="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Titre publicité : </label>
+                <input type="text" required placeholder="Titre publicité" #t="ngModel" id="nom" name="nom"
+                    [(ngModel)]="publicite.nom" />
+            </div>
+            <div class="form-group">
+                <label> Description publicité : </label>
+                <input type="text" required placeholder="Description Publicité" #d="ngModel" id="descriptionPublicité"
+                    name="description" [(ngModel)]="publicite.description" />
+            </div>
+            <div class="form-group">
+                <label>Canal Publicité : </label>
+                <input type="text" required placeholder="Canal publicité" #q="ngModel" name="Canal"
+                    [(ngModel)]="publicite.canal" />
+            </div>
+
+            <div class="form-group">
+                <label>Cible Publicité : </label>
+                <input type="text" required placeholder="Cible publicité" #pp="ngModel" name="Cible"
+                    [(ngModel)]="publicite.cible" />
+
+            </div>
+
+            <button type="button" type="submit" id="add publicite" (click)="addPublicite()" class="btn btn-success">
+                Ajouter
+            </button>
+        </fieldset>
+    </form>
+    <br />
+</div>
+
+<div *ngIf="update" class="container" style="padding-top: 100">
+    <form #H="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Titre publicité : </label>
+                <input type="text" required placeholder="Titre publicité" #t="ngModel" id="nom" name="nom"
+                    [(ngModel)]="publicite.nom" />
+            </div>
+            <div class="form-group">
+                <label> Description publicité : </label>
+                <input type="text" required placeholder="description Publicité" #d="ngModel" id="descriptionPublicité"
+                    name="description" [(ngModel)]="publicite.description" />
+            </div>
+            <div class="form-group">
+                <label>Canal Publicité : </label>
+                <input type="text" required placeholder="Canal publicité" #q="ngModel" name="Canal"
+                    [(ngModel)]="publicite.canal" />
+            </div>
+
+            <div class="form-group">
+                <label>Cible Publicité : </label>
+                <input type="text" required placeholder="Cible publicité" #pp="ngModel" name="Cible"
+                    [(ngModel)]="publicite.cible" />
+
+                <button type="button" id="updatepublicite" (click)="editPublicite(publicite)" class="btn btn-success">
+                    Modifier
+                </button>
+            </div>
+        </fieldset>
+        
+    </form>
+</div> -->
+
+
+<div  class="container">
+    <div class="row">
+    <div class="col-md-9" > 
+        <div>
+            <h1>Ajouter une nouvelle Publicité</h1>
+        
+            <form #F="ngForm">
+                <fieldset>
+                    <div class="form-group">
+                        <label>Titre publicité : </label>
+                        <input type="text" required placeholder="Titre publicité" #t="ngModel" id="nom" name="nom"
+                            [(ngModel)]="publicite.nom" />
+                    </div>
+                    <div class="form-group">
+                        <label> Description publicité : </label>
+                        <input type="text" required placeholder="Description Publicité" #d="ngModel" id="descriptionPublicité"
+                            name="description" [(ngModel)]="publicite.description" />
+                    </div>
+                    <div class="form-group">
+                        <label>Canal Publicité : </label>
+                        <input type="text" required placeholder="Canal publicité" #q="ngModel" name="Canal"
+                            [(ngModel)]="publicite.canal" />
+                    </div>
+        
+                    <div class="form-group">
+                        <label>Cible Publicité : </label>
+                        <input type="text" required placeholder="Cible publicité" #pp="ngModel" name="Cible"
+                            [(ngModel)]="publicite.cible" />
+        
+                    </div>
+        
+                    <button type="button" type="submit" id="add publicite" (click)="addPublicite()" class="btn btn-success">
+                        Ajouter
+                    </button>
+                </fieldset>
+            </form>
+            <br />
+        </div>
+    </div>
+<div class="col-md-3" >
+
+
+    <div class="list-group list-group-flush border-bottom scrollarea" 
+    *ngFor="let p of listPublicite"
+    >
+
+
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+
+            <strong class="mb-1">{{ p.nom }}</strong>
+            <small>{{ p.dateDebut | date }}</small>
+          </div>
+          <div class="col-10 mb-1 small">{{ p.description }}</div>
+        </a>
+
+    </div>
+</div>
+</div>
+

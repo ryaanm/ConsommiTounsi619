@@ -42,7 +42,9 @@ export class PubliciteService {
     return this.httpClient.get<Publicite[]>(`${this.API_URL}/retrieve-all-pubs`)
     }
     addPublicite (publicite: any) {
-    return this.httpClient.post(`${this.API_URL}/add-publicite`, publicite)
+        let idUser = 1;
+
+    return this.httpClient.post(`${this.API_URL}/add-publicite/${idUser}`, publicite)
     }
     modifyPublicite (publicite: any) {
     return this.httpClient.put(`${this.API_URL}/modify-publicite`,publicite)

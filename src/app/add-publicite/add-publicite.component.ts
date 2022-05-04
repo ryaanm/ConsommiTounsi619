@@ -25,7 +25,7 @@ export class AddPubliciteComponent implements OnInit {
       dateDebut : null,
       dateFin : null,
       image : null,
-      nbreVueInitial: null,
+      nbreVueInitial: 0,
       nbreVueFinal: null,
       numPropPublicite: null,
       prixPublicite: null,
@@ -46,6 +46,7 @@ export class AddPubliciteComponent implements OnInit {
   }
 
   editPublicite(p : Publicite){
+    console.log(p)
     this.publiciteService.modifyPublicite(p).subscribe(() => {
       this.getAllPublicites();
       this.form = false;

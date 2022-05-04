@@ -109,42 +109,42 @@
 
                                                     <div class="row" class="col-md-5">
                                                         <label>Nom</label>
-                                                        <input type="text" [(ngModel)]="publicite.nom"
+                                                        <input type="text" [(ngModel)]="p.nom"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Description</label>
-                                                        <input type="text" [(ngModel)]="publicite.description"
+                                                        <input type="text" [(ngModel)]="p.description"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Date Début</label>
-                                                        <input type="date" [(ngModel)]="publicite.dateDebut"
+                                                        <input type="date" [(ngModel)]="p.dateDebut"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Date Fin</label>
-                                                        <input type="date" [(ngModel)]="publicite.dateFin"
+                                                        <input type="date" [(ngModel)]="p.dateFin"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Numéro propriètaire</label>
-                                                        <input type="tel" [(ngModel)]="publicite.numPropPublicite"
+                                                        <input type="tel" [(ngModel)]="p.numPropPublicite"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Type Publicité</label>
-                                                        <input type="text" [(ngModel)]="publicite.typePublicite"
+                                                        <input type="text" [(ngModel)]="p.typePublicite"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Canal</label>
-                                                        <input type="text" [(ngModel)]="publicite.canal"
+                                                        <input type="text" [(ngModel)]="p.canal"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
                                                     <div class="row" class="col-md-5">
                                                         <label>Population Cible</label>
-                                                        <input type="text" [(ngModel)]="publicite.cible"
+                                                        <input type="text" [(ngModel)]="p.cible"
                                                             [ngModelOptions]="{standalone : true}" />
                                                     </div>
 
@@ -155,7 +155,7 @@
                                                     <button type="button" class="btn btn-info"
                                                         (click)="modal.close('Save click')"
                                                         (click)="cancel()">Annuler</button>
-                                                    <button class="btn btn-success" (click)="editPublicite(publicite)"
+                                                    <button class="btn btn-success" (click)="editPublicite(p)"
                                                         (click)="modal.close('Save click')">Confirmer</button>
                                                 </div>
                                             </form>

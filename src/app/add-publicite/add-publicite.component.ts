@@ -45,8 +45,11 @@ export class AddPubliciteComponent implements OnInit {
     });
   }
 
-  editPublicite(publicite : Publicite){
-    this.publiciteService.modifyPublicite(publicite).subscribe();
+  editPublicite(p : Publicite){
+    this.publiciteService.modifyPublicite(p).subscribe(() => {
+      this.getAllPublicites();
+      this.form = false;
+    });
   }
   deletePublicite(idPublicite : any){
     this.publiciteService.removePublicite(idPublicite).subscribe(() => this.getAllPublicites())

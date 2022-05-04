@@ -22,7 +22,7 @@ export class PubliciteService {
    
     }
     addPublicite(publicite : any){
-        return this.httpClient.post(this.API_URL2+'${idUser}', publicite)
+        return this.httpClient.post(this.API_URL2+'${1}', publicite)
     }
     removePublicite(idPublicite : any){
         return this.httpClient.delete(this.API_URL+'/remove-publicite/${idPublicite}')

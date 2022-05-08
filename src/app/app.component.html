@@ -1,0 +1,106 @@
+<footer id="footer">
+  <!-- top footer -->
+  <div class="section">
+      <!-- container -->
+      <div class="container">
+          <!-- row -->
+          <div class="row">
+            <div id="app">
+              <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <a href="#" class="navbar-brand"></a>
+                <ul class="navbar-nav mr-auto" routerLinkActive="active">
+                  <li class="nav-item">
+                    <a href="/home" class="nav-link" routerLink="home">Home </a>
+                  </li>
+                  <li class="nav-item" *ngIf="showAdminBoard">
+                    <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+                  </li>
+                  <li class="nav-item" *ngIf="showModeratorBoard">
+                    <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+                  <li class="nav-item">
+                    <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/login" class="nav-link" routerLink="login">Login</a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+                  <li class="nav-item">
+                    <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href class="nav-link" (click)="logout()">LogOut</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="container">
+                <router-outlet></router-outlet>
+              </div>
+            </div>>
+
+              <div class="clearfix visible-xs"></div>
+
+              <div class="col-md-3 col-xs-6">
+                  <div class="footer">
+                      <h3 class="footer-title">Information</h3>
+                      <ul class="footer-links">
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Contact Us</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Orders and Returns</a></li>
+                          <li><a href="#">Terms & Conditions</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="col-md-3 col-xs-6">
+                  <div class="footer">
+                      <h3 class="footer-title">Service</h3>
+                      <ul class="footer-links">
+                          <li><a href="#">My Account</a></li>
+                          <li><a href="#">View Cart</a></li>
+                          <li><a href="#">Wishlist</a></li>
+                          <li><a href="#">Track My Order</a></li>
+                          <li><a href="#">Help</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- /row -->
+      </div>
+      <!-- /container -->
+  </div>
+  <!-- /top footer -->
+
+  <!-- bottom footer -->
+  <div id="bottom-footer" class="section">
+      <div class="container">
+          <!-- row -->
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <ul class="footer-payments">
+                      <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                      <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                      <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                      <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                      <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                      <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                  </ul>
+                  <span class="copyright">
+                       <a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
+                  </span>
+              </div>
+          </div>
+              <!-- /row -->
+      </div>
+      <!-- /container -->
+  </div>
+  <!-- /bottom footer -->
+
+</footer>

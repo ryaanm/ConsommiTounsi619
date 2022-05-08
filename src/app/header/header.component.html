@@ -8,7 +8,6 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
                 <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
             </ul>
         </div>
@@ -120,4 +119,12 @@
         <!-- container -->
     </div>
     <!-- /MAIN HEADER -->
+
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
 </header>

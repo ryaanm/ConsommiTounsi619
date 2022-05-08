@@ -52,4 +52,7 @@ export class PubliciteService {
     removePublicite(idPublicite: any) {
     return this.httpClient.delete(`${this.API_URL}/remove-publicite/${idPublicite}`)
     }
+    totalCost(Canal, dateDebut, dateFin, prixPublicite){
+        return this.httpClient.post(`${this.API_URL}/totalCost/${Canal}${dateDebut}${dateFin}/`, prixPublicite)
+    }
 }

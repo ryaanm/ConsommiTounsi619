@@ -35,6 +35,9 @@ export class AddPubliciteComponent implements OnInit {
 
     }
   }
+  setPrixPublicite(canal : any, dateDebut:any , dateFin:any , prixPublicite:any){
+    this.publiciteService.totalCost(canal,dateDebut,dateFin,prixPublicite).subscribe(res => this.listPublicites = res)
+  }
   getAllPublicites(){
     this.publiciteService.getPublicites().subscribe(res => this.listPublicites = res)
   }

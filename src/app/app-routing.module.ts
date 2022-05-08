@@ -5,7 +5,9 @@ import { PubliciteComponent } from './publicite/publicite.component';
 
 
 const routes: Routes =[
-  { path: 'home',  component: AddPubliciteComponent },
+  { path: 'home',  component: PubliciteComponent },
+  { path: 'addPublicite',  component: AddPubliciteComponent },
+  { path: 'Publicite',  component: PubliciteComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ]
 

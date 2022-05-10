@@ -59,4 +59,5 @@ export class PubliciteService {
     searchPubliciteByName(nom: string): Observable<Publicite[]> {
         return this.httpClient.get<Publicite[]>(this.API_URL + '/retrieve-PubliciteByNom/' + nom);
       }
+      
 }

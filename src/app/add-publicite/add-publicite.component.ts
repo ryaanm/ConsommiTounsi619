@@ -14,6 +14,8 @@ export class AddPubliciteComponent implements OnInit {
    publicite!: Publicite;
    closeResult! : string;
    SearchVal : string = '';
+   selectedcanal : string = '';
+   selectedcible: string = '';
   constructor(private publiciteService : PubliciteService, private modalService : NgbModal) { }
 
   ngOnInit(): void {

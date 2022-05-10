@@ -13,6 +13,7 @@ export class AddPubliciteComponent implements OnInit {
   form : boolean = false;
    publicite!: Publicite;
    closeResult! : string;
+   SearchVal : string = '';
   constructor(private publiciteService : PubliciteService, private modalService : NgbModal) { }
 
   ngOnInit(): void {
@@ -79,6 +80,16 @@ export class AddPubliciteComponent implements OnInit {
   }
   cancel(){
     this.form = false;
+  }
+
+  Search() {
+    if (this.SearchVal === '') {
+      this.getAllPublicites();
+    } else {
+      this.publiciteService.searchPubliciteByName(this.SearchVal).subscribe((res) => {
+        this.listPublicites = res;
+      });
+    }
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Publicite } from 'src/models/publicite';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 /*@Injectable({
     providedIn : 'root'
@@ -55,4 +56,7 @@ export class PubliciteService {
     totalCost(Canal, dateDebut, dateFin, prixPublicite){
         return this.httpClient.post(`${this.API_URL}/totalCost/${Canal}${dateDebut}${dateFin}/`, prixPublicite)
     }
+    searchPubliciteByName(nom: string): Observable<Publicite[]> {
+        return this.httpClient.get<Publicite[]>(this.API_URL + '/retrieve-PubliciteByNom/' + nom);
+      }
 }

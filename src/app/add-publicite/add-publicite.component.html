@@ -3,6 +3,8 @@
         <div class="col-md-12">
             <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Ajouter une nouvelle
                 Publicité</button>
+                <input class="form-control" placeholder="Search" type="text" [(ngModel)]="SearchVal" (keyup)="Search()">
+
             <br><br>
             <ng-template #mymodal1 let-modal1>
                 <div class="modal-header">

@@ -13,7 +13,7 @@ const routechar: Routes = [
   { path: '', redirectTo: '/charite', pathMatch: 'full' }
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(routes),(routechar)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routechar)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

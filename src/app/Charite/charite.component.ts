@@ -13,13 +13,13 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 
 
-@NgModule({
+/*@NgModule({
   imports: [
              BrowserModule,
-
+     
              FormsModule      //<----------make sure you have added this.
            ]
-})
+})*/
 
 
 
@@ -31,6 +31,7 @@ export class ChariteComponent implements OnInit {
   AddCharite: boolean=false;
   update: boolean;
   Charr: any;
+  charityTypes: string[] = ['anonymous', 'known donor', 'partner']
 
 
   constructor(private chariteService : ChariteService, private modalService: NgbModal) { }
@@ -83,7 +84,6 @@ export class ChariteComponent implements OnInit {
     }
   }
   closeForm(){
-
   }
   cancel(){
     this.form = false;

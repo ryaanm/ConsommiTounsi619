@@ -1,8 +1,8 @@
 export class Charite {
         id_charite : number;
         nom : string;
-        date_debut : Date;
-        date_fin : Date;
+        dateDebut : string;
+        dateFin: string;
         montantpaye: number;
         typecharite: string;
         description: string;

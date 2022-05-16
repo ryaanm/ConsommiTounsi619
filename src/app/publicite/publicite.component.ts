@@ -45,7 +45,6 @@ export class PubliciteComponent implements OnInit {
 
   }
 
-
   addPublicite(){
     this.publiciteService.addPublicite(this.publicite).subscribe(() => { this.publiciteService.getPublicites().subscribe(res => {this.listPublicite =res});
       this.form = false;
@@ -81,5 +80,4 @@ export class PubliciteComponent implements OnInit {
   cancel(){
     this.form = false;
   }
-
 }

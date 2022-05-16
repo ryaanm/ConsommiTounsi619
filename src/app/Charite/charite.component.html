@@ -1,0 +1,69 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div>
+        <h1>Ajouter un nouvel evement de charite</h1>
+
+        <form #F="ngForm">
+          <fieldset>
+            <div class="form-group">
+              <label>Name: </label>
+              <input type="text" required placeholder="Name" #t="ngModel" id="Name" name="Name"
+                     [(ngModel)]="charite.nom" />
+            </div>
+            <div class="form-group">
+              <label> Starting Date : </label>
+              <input type="date" required #d="ngModel" id="startDate"
+                     name="startDate" [(ngModel)]="charite.dateDebut" />
+            </div>
+            <div class="form-group">
+              <label> End Date : </label>
+              <input type="date" required #d="ngModel" id="endDate"
+                     name="endDate" [(ngModel)]="charite.dateFin" />
+            </div>
+            <div class="form-group">
+              <label> Donated amount : </label>
+              <input type="number" required #d="ngModel" id="amount"
+                     name="description" [(ngModel)]="charite.montantpaye" />
+            </div>
+            <div class="form-group">
+              <label> Charity Type : </label>
+              <select [(ngModel)]="charite.typecharite" required>
+                <option [ngValue]="null" disabled>Select Country</option>
+                <option *ngFor="let ct of charityTypes" [ngValue]="ct"> {{ ct }} </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label> Description : </label>
+              <input type="text" required placeholder="Description" #d="ngModel" id="descriptionCharite"
+                     name="description" [(ngModel)]="charite.description" />
+            </div>
+            <button type="button" id="add charite" (click)="addCharite()" class="btn btn-success">
+              Ajouter
+            </button>
+          </fieldset>
+        </form>
+        <br />
+      </div>
+    </div>
+    <div class="col-md-3">
+
+
+      <div class="list-group list-group-flush border-bottom scrollarea"
+           *ngFor="let c of listCharite">
+
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+
+            <strong class="mb-1">{{ c.nom }}</strong>
+            <small>{{ c.date_debut | date }}</small>
+          </div>
+          <div class="col-10 mb-1 small">{{ c.description }}</div>
+        </a>
+
+
+      </div>
+    </div>
+  </div>
+</div>

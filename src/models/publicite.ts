@@ -1,5 +1,4 @@
 
-
 export class Publicite {
         idPublicite : number;
         nom : string;
@@ -14,5 +13,4 @@ export class Publicite {
         description: string;
         cible : string;
         canal :string;
-
 }

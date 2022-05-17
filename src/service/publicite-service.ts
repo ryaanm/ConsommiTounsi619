@@ -37,7 +37,7 @@ export class PubliciteService {
     providedIn: 'root'
     })
     export class PubliciteService {
-    readonly API_URL = 'http://localhost:8080/SpringMVC/publicite';
+    readonly API_URL = 'http://localhost:6868/api/publicite';
     constructor (private httpClient: HttpClient) { }
     getPublicites() {
     return this.httpClient.get<Publicite[]>(`${this.API_URL}/retrieve-all-pubs`)

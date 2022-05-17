@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPubliciteComponent } from './add-publicite/add-publicite.component';
 import { PubliciteComponent } from './publicite/publicite.component';
-import { ChariteComponent } from './charite/charite.component';
+import { ChariteComponent } from './Charite/charite.component';
 
 const routes: Routes =[
   { path: 'home',  component: PubliciteComponent },
